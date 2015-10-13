@@ -1,0 +1,23 @@
+.darkbg, .darkbg h2{
+	color: #fff;
+}
+
+.darkbg.fuzzy{
+	background: rgba(0,0,0,0.7);
+}
+
+.reveal li{
+	padding-bottom: 20px;
+}
+
+.reveal ul li ul li{
+	list-style-type: circle;
+}
+
+.reveal table td{
+	border: 0;
+}
+
+.fragment.fade-out.visible{
+	display: none;
+}
