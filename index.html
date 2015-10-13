@@ -62,14 +62,14 @@
 				<section>
 					<section>
 						<h2>The Small Percentage Myth</h2>
-						<p>Accessibility effects everyone, and goes an incredibly long way for some users. The bottom line is that most changes to make a site more accessible also happen to make well-designed sites and software.</p>
+						<p>Accessibility effects everyone and REALLY can help your users with disabilities. The bottom line is that most changes to make a site more accessible also happen to make well-designed sites and software.</p>
 					</section>
 					<section>
 						<h2>What you should look out for</h2>
 						<ul>
 							<li>Colors, Contrast, and Size
 								<ul>
-									<li>Is your palette color-blind friendly?</li>
+									<li>Is your palette friendly for color-blindness?</li>
 									<li>Can your mother read it?<br/>Can your grandmother read it?</li>
 								</ul>
 							</li>
@@ -230,11 +230,11 @@
 							<p><strong>WAI-ARIA to the rescue</strong></p>
 							<p>If you insist...</p>
 							<p>Use aria-label or aria-labelledby</p>
-							<p>This WILL NOT help your sighted users, but will help screenreaders</p>
+							<p>This WILL NOT help your sighted users, but it will help those using screenreaders. I encourage a more universal approach!</p>
 						</div>
 					</section>
 					<section>
-						<p><strong>aria-label</strong> is a label stand-in, and literally labels</p>
+						<p><strong>aria-label</strong> is a label stand-in, and literally labels. When a screenreader reaches an aria-label it <em>should</em> alert your user</p>
 						<pre><code><input type="text" aria-label="address line 2"/></code></pre>
 						<p><strong>aria-labelledby</strong> points to the ID of other element(s) to label your form item</p>
 						<pre><code data-trim>
@@ -288,7 +288,104 @@
 						<p>A simple example...<br/>you made a button out of a link tag (Why!?)</p>
 						<pre><code><a href="javascript:void(0);" id="submit" role="button">Submit</a></code></pre>
 					</section>
-				</section>https://github.com/saltavenger/saltavenger.github.io.git
+					<section>
+						<h4>Easy to learn WAI-ARIA Properties</h4>
+						<p>A useful, non-exhaustive list of simple aria boolean properties to easily add to your repetoire</p>
+						<ul>
+							<li>aria-expanded</li>
+							<li>aria-haspopup</li>
+							<li>aria-readonly</li>
+							<li>aria-pressed</li>
+							<li>aria-checked</li>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>CSS</h2>
+						<h3>...Almost forgot this was a CSS meetup</h3>
+						<img src="imgs/embarassed.gif" alt="Bender is embarassed and I am too" />
+					</section>
+					<section>
+						<p>Accessibility for CSS is mainly "<strong>OMG</strong> Please don't do that"</p>
+						<p class="fragment fade-in big">Let's Talk About That...</p>
+					</section>
+					<section>
+						<h3>Content</h3>
+						<p>The CSS content property should not be a stand-in for properly written HTML.</p>
+						<p>If you use the content property to add images, keep it decorative rather than functional. Alt text cannot be added using the content property and titles can be iffy.</p>
+					</section>
+					<section>
+						<h3>Hover Vs Focus Vs Active</h3>
+						<p>99% of the time when there is a hover state, there should be a focus state set as well. This way, keyboard users get the same experience. <strong>Bonus! setting :focus also makes your site play nice with touch devices.</strong></p>
+						<p><strong>Hover</strong>: The state we all know and love, when the mouse moves over an element</p>
+						<p><strong>Focus</strong>: When the element receives focus, via keyboard targeting or is activated by the mouse</p>
+						<p><strong>Active</strong>: When the element is activated, generally via a click event. Usually only visible for a short period of time.</p>
+					</section>
+					<section>
+						<h3>Hiding things, the Worst Part</h3>
+						<p><strong>display: none;</strong> the element is not visible, is not rendered, and will not be seen or read by screenreaders</p>
+						<p><strong>visibility: hidden;</strong> the element is not visible, it IS rendered, and will not be seen or read by screenreaders</p>
+						<p><strong>aria-hidden HTML property</strong> hides from screenreaders only, visible and rendered for sighted users</p>
+					</section>
+					<section>
+						<h3>Why is hiding things such an issue</h3>
+						<p>Unfortunately, in many cases there are visual cues that indicate to sighted users what the hidden content or labels are that don't not get translated in a useful manner for those who are blind or visually impaired.</p>
+						<p><strong>Some Examples:</strong> Standard dropdown navigation, tabs, accordions, complex inputs (addresses, phone numbers)</p>
+					</section>
+					<section>
+						<h3>What can I do? I gotta hide it!</h3>
+						<p>Hide these elements using a screenreader-friendly CSS class. Do not use display: none; or visibility: hidden;</p>
+						<p>The following example is taken from bootstrap, but there are tons of effective methods. HTML5 boilerplate's "visuallyhidden" method is also a great one. And it's <a href="http://snook.ca/archives/html_and_css/hiding-content-for-accessibility">creator explains it well</a>.</p>
+						<pre><code data-trim>
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>The Colors!</h3>
+						<p>Friendly color schemes can get challenging, but they are well worth the reward of effective communication</p>
+						<p><a href="http://www.snook.ca/technical/colour_contrast/colour.html#fg=33FF33,bg=333333">Check your contrast!</a> Your eyes will thank you</p>
+						<p><a href="http://colororacle.org/">Check for color-blind-friendly palettes!</a> 8% of the male population and .005% of females will thank you</p>
+						<p><a href="http://colorbrewer2.org/">For Maps, Charts, Graphs</a></p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>In case you weren't overwhelmed enough</h2>
+						<ul>
+							<li><a href="http://www.webaim.org">WebAIM</a> an all-around awesome resource</li>
+							<li><a href="http://www.w3.org/WAI/ER/tools/">W3.org List of Suggested Tools</a></li>
+							<li>Screenreaders
+								<ul>
+									<li><a href="http://www.chromevox.com">ChromeVox</a> a free screenreader extension for chrome</li>
+									<li>Apple's voiceover is also a great way to test</li>
+									<li>If your company has the $, JAWS is the standard</li>
+								</ul>
+							</li>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">The MDN Accessibility Homepage</a></li>
+							<li><a href="http://www.deque.com/blog/text-links-practices-screen-readers/">A Decent breakdown of aria-label vs the title property</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>More!</h2>
+						<ul>
+							<li><a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US">Chrome Wave Tool</a> a chrome extension that gives your site a quick accessibility check. Also available for firefox, but not as often updated.</li>
+						</li>
+						<li><a href="https://wiki.csswg.org/spec/css3-flexbox/accessibility">An interesting article on accessibility and flexbox, for those concerned about the future (which is pretty much here)</a></li>
+						<li><a href="http://www.w3.org/2008/06/video-notes">Making multimedia accessible</a></li>
+						<li><a href="https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video">Adding captions to HTML5 Video</a></li>
+						<li><a href="http://www.section508.gov/">508 Compliance</a></li>
+						<li><a href="http://www.w3.org/WAI/intro/wcag">WCAG Guidelines</a></li>
+					</section>
+				</section>
 			</div>
 
 		</div>

@@ -21,3 +21,7 @@
 .fragment.fade-out.visible{
 	display: none;
 }
+
+.reveal p.big{
+	font-size: 75pt;
+}
