@@ -50,6 +50,10 @@ section.left{
 section.right{
 	width: 70%;
 }
+section.right h2:after{
+	content: ' \f0ce';
+	font-family: 'FontAwesome'
+}
 table {
 	width: 100%;
 	border-spacing: 0;
