@@ -1,0 +1,105 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Boston CSS Accessibility Workshop</title>
+  <meta name="description" content="Can you find the accessibility errors?">
+  <meta name="author" content="Ali Areskog">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/comecorrect.css?v=1.0">
+
+</head>
+	
+<body>
+	<header>
+		<h1>Spot the Accessibility Errors Form</h1>
+		<img src="../imgs/challengeAccepted.png" alt="Challenge Accepted Meme"/>
+	</header>
+	<main>
+		<section class="left">
+			<h2>Customer Information <i class="fa fa-info-circle" aria-hidden="true"></i></h2>
+			<form action="" method="post">
+				<label>First Name<input type="text"></label><!-- With or Without For is fine bc it's wrapped-->
+				<label>Last Name<input type="text" /></label><!-- With or Without For is fine bc it's wrapped-->
+				<h4 id="shipping">Shipping Address</h4>
+				<label id="street1" name="shipping">Street</label>
+				<input type="text" aria-labelledby="shipping street1" name="shipping" />
+				<label id="street2" class="sr-only">Street Line 2</label>
+				<input type="text" aria-labelledby="shipping street2" name="shipping" />
+				<label for="city">City</label>
+				<input type="text" name="shipping" id="city" />
+				<label for="state">State</label>
+				<select class="inline" name="shipping" id="state" >
+					<option value="AL">AL</option>
+					<option value="TL">Too Long</option>
+				</select>
+				<label for="zip">Zip Code</label>
+				<input type="text" class="inline" name="shipping" id="zip" maxlength="5" />
+				<div id="verification">
+					<input type="checkbox" name="shipping" class="inline" id="verify" value="verified" /><label for="verify">I verify that all the information above is correct</label>
+				</div>
+				<div><div class="button" id="submit" role="button" tabindex="0">Add Customer</div></div>
+			</form>
+		</section>
+		<section class="right">
+			<h2>Customer Data <i class="fa fa-table" aria-hidden="true"></i></h2>
+			<div class="button" id="download" tabindex="0">
+				<span aria-label="Download"><i class="fa fa-download" aria-hidden="true"></i></span>
+			</div>
+			<table>
+				<thead>
+				<tr>
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">Address Line 1</th>
+					<th scope="col">Address Line 2</th>
+					<th scope="col">City</th>
+					<th scope="col">State</th>
+					<th scope="col">Zip Code</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>Ali</td>
+					<td>Areskog</td>
+					<td>90 Fake St</td>
+					<td>#66</td>
+					<td>Boston</td>
+					<td>MA</td>
+					<td>02129</td>
+				</tr>
+				<tr>
+					<td>Bob</td>
+					<td>The Builder</td>
+					<td>9 Imaginary Lane</td>
+					<td></td>
+					<td>Wonderland</td>
+					<td>KS</td>
+					<td>55555</td>
+				</tr>
+				<tr>
+					<td>Banana</td>
+					<td>Fruitstein</td>
+					<td>4 Elliot St</td>
+					<td>Apt 6</td>
+					<td>Jamaica Plain</td>
+					<td>MA</td>
+					<td>02130</td>
+				</tr>
+				<tr>
+					<td>Aster P.</td>
+					<td>Dogg</td>
+					<td>78 Blanket Lane</td>
+					<td></td>
+					<td>Boston</td>
+					<td>MA</td>
+					<td>02129</td>
+				</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</body>
+</html>

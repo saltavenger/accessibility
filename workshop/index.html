@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Boston CSS Accessibility Workshop</title>
+  <meta name="description" content="Can you find the accessibility errors?">
+  <meta name="author" content="Ali Areskog">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+	
+<body>
+	<div>
+		<h1>Spot the Accessibility Errors Form</h1>
+		<img src="../imgs/challengeAccepted.png" />
+	</div>
+	<main>
+		<section class="left">
+			<h4>Customer Information <i class="fa fa-info-circle"></i></h4>
+			<form action="" method="post">
+				<label>First Name<input type="text" /></label>
+				<label>Last Name<input type="text" /></label>
+				<h3>Shipping Address</h3>
+				<label>Street</label>
+				<input type="text" name="shipping" />
+				<input type="text" name="shipping" />
+				City <input type="text" name="shipping" />
+				State 
+				<select class="inline" name="shipping" />
+					<option value="AL">AL</option>
+					<option value="TL">Too Long</option>
+				</select>
+				Zip Code <input type="text" class="inline" name="shipping" maxlength="5" width="110" />
+				<div id="verification">
+					<input type="checkbox" name="shipping" class="inline" id="verify" value="verified" /><label for="verify">I verify that all the information above is correct</label>
+				</div>
+				<div class="button" id="submit">Add Customer</div>
+			</form>
+		</section>
+		<section class="right">
+			<h2>Customer Data <i class="fa fa-table"></i></h2>
+			<div class="button" id="download">
+				<i class="fa fa-download" aria-hidden="true"></i>
+			</div>
+			<table>
+				<tbody>
+				<tr>
+					<td><strong>First Name</strong></td>
+					<td><strong>Last Name</strong></td>
+					<td><strong>Address Line 1</strong></td>
+					<td><strong>Address Line 2</strong></td>
+					<td><strong>City</strong></td>
+					<td><strong>State</strong></td>
+					<td><strong>Zip Code</strong></td>
+				</tr>
+				<tr>
+					<td>Ali</td>
+					<td>Areskog</td>
+					<td>90 Fake St</td>
+					<td>#66</td>
+					<td>Boston</td>
+					<td>MA</td>
+					<td>02129</td>
+				</tr>
+				<tr>
+					<td>Bob</td>
+					<td>The Builder</td>
+					<td>9 Imaginary Lane</td>
+					<td></td>
+					<td>Wonderland</td>
+					<td>KS</td>
+					<td>55555</td>
+				</tr>
+				<tr>
+					<td>Banana</td>
+					<td>Fruitstein</td>
+					<td>4 Elliot St</td>
+					<td>Apt 6</td>
+					<td>Jamaica Plain</td>
+					<td>MA</td>
+					<td>02130</td>
+				</tr>
+				<tr>
+					<td>Aster P.</td>
+					<td>Dogg</td>
+					<td>78 Blanket Lane</td>
+					<td></td>
+					<td>Boston</td>
+					<td>MA</td>
+					<td>02129</td>
+				</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</body>
+</html>

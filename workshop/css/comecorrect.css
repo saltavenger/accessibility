@@ -1,0 +1,81 @@
+/* Begin Fix */
+.sr-only{
+	position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+/* End Fix */
+body{
+	margin: 40px;
+}
+/* Begin Fix */
+header{
+	text-align: center;
+	margin-bottom: 40px;
+}
+/* End Fix */
+label {
+	font-weight: bold;
+}
+.button {
+	display: inline-block;
+	background: #ccc;
+	width: auto;
+	padding: 10px;
+	margin: 10px 0px 0px 0px;
+}
+/* Begin Fix */
+.button:hover, .button:focus {
+	background: #666;
+	color: #eee;
+}
+/* End Fix */
+.button:active{
+	background: #333;
+}
+input {
+	display: block;
+	margin-bottom: 8px;
+}
+input[type="text"] {
+	width: 300px;
+	height: 30px;
+}
+input.inline {
+	display:inline-block;
+}
+#zip {
+	width: 110px;
+}
+#verification label{
+	font-weight: normal;
+	margin-left: 4px;
+}
+section {
+	float: left;
+	margin-bottom: 40px;
+}
+section.left{
+	width: 30%;
+}
+section.right{
+	width: 70%;
+}
+table {
+	width: 100%;
+	border-spacing: 0;
+}
+table td, table th {
+	padding: 15px;
+}
+table th{
+	border-bottom: 1px solid #000;
+}
+table tbody tr:nth-child(odd) {
+	background: #ccc;
+}
