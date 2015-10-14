@@ -123,7 +123,6 @@
 						<p>Designers and product managers often talk about how a user's eye will flow through the site, but when it comes to development this conversation is often left out. Your structure should follow the site's reading order.</p>
 						<ul>
 							<li class="fragment">If your structure flows correctly the user should easily be able to use the tab key to navigate instead of their mouse</li>
-							<li class="fragment">Properly nest your headers. H1, H2, H3, etc have meaning beyond a style. Headers are meant to be nested and indicate a specific reading order. The H1 title should generally be reserved for the name of your site.</li>
 							<li class="fragment">DON'T FIX IT WITH TABINDEX, do it right the first time!</li>
 						</ul>
 					</section>
@@ -133,8 +132,23 @@
 						<pre><code><header></header></code></pre>
 						<pre><code><nav></nav></code></pre>
 						<pre><code><main></main></code></pre>
+						<pre><code>&lt;section&gt;&lt;/section&gt;</code></pre>
 						<pre><code><footer></footer></code></pre>
 						<p>...and more!</p>
+					</section>
+					<section>
+						<h3>Headers</h3>
+						<p>Properly nest headers! H1, H2, H3, etc have meaning beyond a style. Headers should be nested to indicate a specific reading order. The H1 header is often reserved for the name of the site, but this is not necessary with HTML5 markup.</p>
+						<p>The <strong>hgroup</strong> tag takes the header element with the highest rank (h1,h2, etc) to use for the document outline, and associates lesser-headings without cluttering things.</p>
+						<h4>Markup!</h4>
+						<pre><code data-trim>
+<header>
+	<hgroup>
+		<h2>A Title</h2>
+		<p>A Clever Subtitle</p>
+	</hgroup>
+</header>
+						</code></pre>
 					</section>
 					<section>
 						<h3>Practical Applications</h3>
@@ -145,7 +159,7 @@
 						<ul>
 							<li>Don't forget your Alt text, it helps users with visual impairments, people using an RSS feed, and if your images don't load for whatever reason your description will.</li>
 							<li>Don't use images for functional elements such as Buttons. If you really <em>really</em> have to-- include a proper label and/or role (we're getting to this).</li>
-							<li><strong>Don't sweat the small stuff</strong>, decorative elements aren't worth worrying about unless they are important to context</li>
+							<li><strong>Don't sweat the small stuff</strong>, decorative images and/or images with repetitive alt text should have a blank alt tag.</li>
 						</ul>
 					</section>
 					<section>
@@ -192,10 +206,8 @@
 						</div>
 					</section>
 					<section>
-						<h3>Forms, &amp; Labels</h3>
-						<h4>The Basics</h4>
-						<p>All inputs, selects, and textareas should always have a corresponding label</p>
-						<p>The label's <strong>for</strong> property corresponds to the ID</p>
+						<h3>Forms &amp; Labels: The Basics</h3>
+						<p>All inputs, selects, and textareas should have a corresponding label. And the label's <strong>for</strong> property corresponds to the ID. <span class="small">* The "for" property is technically not necessary if the input is wrapped inside the label. It is considered implicit. *</span></p>
 						<div style="width:50%;float:left;">
 							<input type="radio" name="argue" id="yes"><label for="yes">Yes</label>
 							<input type="radio" name="argue" id="no"><label for="no">No</label>
@@ -225,7 +237,7 @@
 						<div class="fragment fade-in">
 							<p>So...you made an element without a visible label, or the label is on an unexpected area of the page.</p>
 							<p><strong>WAI-ARIA to the rescue</strong></p>
-							<p>If you insist...</p>
+							<p>If you <em>really</em> insist...</p>
 							<p>Use aria-label or aria-labelledby</p>
 							<p>This WILL NOT help your sighted users, but it will help those using screenreaders. I encourage a more universal approach!</p>
 						</div>
@@ -260,7 +272,7 @@
 						<p>DISCLAIMER: If you have to play with tab order, you may want to rethink your structure.</p>
 						<ul>
 							<li>The <strong>tabindex</strong> property customizes the tab and navigation order when using the tab key on the keyboard</li>
-							<li>You can order elements using tabindex=1, tabindex=2, tabindex=3, and so on</li>
+							<li>You can order elements using tabindex=1, tabindex=2, tabindex=3, and so on (But this is really bad! Don't do it!!)</li>
 							<li>A tabindex of 0 adds an element such as a &lt;div&gt; or &lt;span&gt; into the default tab order and makes it focusable.</li>
 							<li>A tabindex of -1 allows focus to be set programmatically to elements (such as a modal), but takes the object out of the default tab order.
 						</li>
@@ -279,8 +291,8 @@
 						<p>No more garble!</p>
 					</section>
 					<section>
-						<h4>More sweet, sweet HTML5</h4>
-						<p>HTML5 <strong>Roles</strong> can be really helpful for instructing your browser AND your user when using a non-standard element or for complex widgets.</p>
+						<h4>More sweet, sweet WAI-ARIA &amp; HTML5</h4>
+						<p><strong>Roles</strong> can be really helpful for instructing your browser AND your user when using a non-standard element or for complex widgets.</p>
 						<p><a href="http://www.w3.org/TR/wai-aria/roles#role_definitions">THERE ARE A LOT OF ROLES</a></p>
 						<p>A simple example...<br/>you made a button out of a link tag (Why!?)</p>
 						<pre><code><a href="javascript:void(0);" id="submit" role="button">Submit</a></code></pre>
@@ -352,6 +364,14 @@
 						<p><a href="http://www.snook.ca/technical/colour_contrast/colour.html#fg=33FF33,bg=333333">Check your contrast!</a> Your eyes will thank you</p>
 						<p><a href="http://colororacle.org/">Check for color-blind-friendly palettes!</a> 8% of the male population and .005% of females will thank you</p>
 						<p><a href="http://colorbrewer2.org/">For Maps, Charts, Graphs</a></p>
+					</section>
+					<section>
+						<h3>Multimedia &amp; CSS Animations/Transitions</h3>
+						<h4>Some Quick Notes</h4>
+						<ul>
+							<li class="fragment">Captioning for HTML5 &amp; Flash video is totally a thing, you should do it! It's more complicated than this slideshow can cover, but I included some handy links in the resources section.</li>
+							<li class="fragment">Be judicial with your animations. Allow the ability to turn the animation off. Strobing is generally not a good thing.</li>
+						</ul>
 					</section>
 				</section>
 				<section>

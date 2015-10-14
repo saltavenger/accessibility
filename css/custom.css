@@ -25,3 +25,9 @@
 .reveal p.big{
 	font-size: 75pt;
 }
+
+.reveal span.small{
+	font-size: 14pt;
+	vertical-align: super;
+	display: inline-block;
+}
