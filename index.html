@@ -49,65 +49,6 @@
 					</p>
 				</section>
 
-				<section>
-					<h2>Reasons <em>NOT</em>&nbsp; to code Accessibly</h2>
-					<ol>
-						<li class="fragment">It takes too much time</li>
-						<li class="fragment">Lack of Information and Support</li>
-						<li class="fragment">Information overload</li>
-						<li class="fragment">It's not required, and not important enough</li>
-					</ol>
-					<p class="fragment"><strong><em>Hint:</em> These are excuses</strong></p>
-				</section>
-
-				<section>
-					<section>
-						<h2>The Small Percentage Myth</h2>
-						<p>Accessibility effects everyone and REALLY can help your users with disabilities. The bottom line is that most changes to make a site more accessible also happen to make well-designed sites and software.</p>
-					</section>
-					<section>
-						<h2>What you should look out for</h2>
-						<ul style="max-width:60%;">
-							<li>Colors, Contrast, and Size</li>
-							<li>Page Structure and Flow</li>
-							<li>Clear, Intuitive Navigation (Keyboard Accessibility!)</li>
-							<li>Descriptive Elements
-								<ul>
-									<li>labels</li>
-									<li>titles</li>
-									<li>alt text</li>
-								</ul>
-							</li>
-						</ul>
-						<img src="imgs/fontforants.jpg" alt="Small fonts are bad" style="width: 300px; float: right;">
-					</section>
-				</section>
-
-				<section>
-					<section data-background="imgs/morpheus.png" class="darkbg">
-						<h2>What If I told you...</h2>
-						<p class="fragment">Coding Accessibly Makes You A Better Programmer!</p>
-					</section>
-					<section data-transition="zoom">
-						<h2>Most of Accessible Coding<br/>is Semantic Coding</h2>
-						<ul>
-							<li>Semantic coding isn't just "nice," it's coherent, consistent, and faster</li>
-							<li>Keep a consistent reading and tabbing order</li>
-							<li>Keep it descriptive and easy to read</li>
-							<li>If your solution looks hacky, it probably is. It also is probably doing your users a disservice</li>
-							<li>Make your users' lives easier, <em>not</em> harder</li>
-						</ul>
-					</section>
-					<section data-background="imgs/yoshi.jpg" class="darkbg fuzzy">
-						<h2>Warm Fuzzies</h2>
-						<ul>
-							<li>Clear, Concise HTML and CSS</li>
-							<li>Happy Users</li>
-							<li>Self Satisfaction</li>
-						</ul>
-					</section>
-				</section>
-
 				<section data-background="imgs/ohyou.jpg" class="darkbg fuzzy">
 					<h2>How Do I Do It?</h2>
 					<span class="fragment"><img src="imgs/ohyou2.jpg" alt="Oh You! Meme">
@@ -116,7 +57,7 @@
 
 				<section>
 					<section>
-						<h2>HTML</h2>
+						<h2>Let's talk structure</h2>
 					</section>
 					<section>
 						<h3>Reading and tab order are important</h3>
@@ -126,6 +67,61 @@
 							<li class="fragment">DON'T FIX IT WITH TABINDEX, do it right the first time!</li>
 						</ul>
 					</section>
+
+					<section>
+						<h4>Tab Order</h4>
+						<p>DISCLAIMER: If you have to play with tab order, you may want to rethink your structure.</p>
+						<ul>
+							<li>The <strong>tabindex</strong> property customizes the tab and navigation order when using the tab key on the keyboard</li>
+							<li>You can order elements using tabindex=1, tabindex=2, tabindex=3, and so on (But this is really bad! Don't do it!!)</li>
+							<li>A tabindex of 0 adds an element such as a &lt;div&gt; or &lt;span&gt; into the default tab order and makes it focusable.</li>
+							<li>A tabindex of -1 allows focus to be set programmatically to elements (such as a modal), but takes the object out of the default tab order.
+						</li>
+					</section>
+
+					<section>
+						<h3>The Dreaded Table</h3>
+						<div>
+							<p>USE TABLES TO HOLD DATA</p>
+							<p>NOT for structuring the page or other elements</p>
+							<p>Don't forget your TH's!</p>
+							<p><strong>Scope is your friend!</strong></p>
+							<p>For <em>EXTREME</em> complex tables: you can use the <strong>headers</strong> property on a &lt;TD&gt; element, paired with the &lt;TH&gt; IDs of the corresponding headers. Scope works with rowspan &amp; colspan, so this is rarely necessary.</p>
+						</div>
+					</section>
+					<section>
+						<table>
+							<tbody>
+								<tr>
+									<th scope="row">First Name</th>
+									<td>Ali</td>
+								</tr>
+								<tr>
+									<th scope="row">Last Name</th>
+									<td>Areskog</td>
+								</tr>
+							</tbody>
+						</table>
+						<div style="clear:both;">
+						<pre>
+							<code>
+&lt;table&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th scope=&quot;row&quot;&gt;First Name&lt;/th&gt;
+			&lt;td&gt;Ali&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope=&quot;row&quot;&gt;Last Name&lt;/th&gt;
+			&lt;td&gt;Areskog&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+							</code>
+						</pre>
+						</div>
+					</section>
+
 					<section>
 						<h3>HTML5 Helps</h3>
 						<p>Use HTML5 tags to help indicate your structure:</p>
@@ -158,52 +154,37 @@
 						<pre><code>&lt;img src="catsObviously.jpg" alt="An Adorable Fuzzy Cat" /&gt;</code></pre>
 						<ul>
 							<li>Don't forget your Alt text, it helps users with visual impairments, people using an RSS feed, and if your images don't load for whatever reason your description will.</li>
-							<li>Don't use images for functional elements such as Buttons. If you really <em>really</em> have to-- include a proper label and/or role (we're getting to this).</li>
+							<li>Don't use images for functional elements such as Buttons. If you really <em>really</em> have to-- include a proper label and/or role.</li>
 							<li><strong>Don't sweat the small stuff</strong>, decorative images and/or images with repetitive alt text should have a blank alt tag.</li>
 						</ul>
 					</section>
 					<section>
-						<h3>The Dreaded Table</h3>
-						<div>
-							<p>Don't forget your TH's!</p>
-							<p><strong>Scope is your friend!</strong></p>
-							<p>Captions are nice, but not necessary</p>
-							<p>For <em>EXTREME</em> complex tables: you can use the <strong>headers</strong> property on a &lt;TD&gt; element, paired with the &lt;TH&gt; IDs of the corresponding headers. Scope works with rowspan &amp; colspan, so this is rarely necessary.</p>
-						</div>
+						<h3>Hiding things</h3>
+						<p><strong>display: none;</strong> the element is not visible, is not rendered, and will not be seen or read by screenreaders</p>
+						<p><strong>visibility: hidden;</strong> the element is not visible, it IS rendered, and will not be seen or read by screenreaders</p>
+						<p><strong>aria-hidden HTML property</strong> hides from screenreaders only, visible and rendered for sighted users</p>
 					</section>
 					<section>
-						<caption>I'm an example Table</caption>
-						<table>
-							<tbody>
-								<tr>
-									<th scope="row">First Name</th>
-									<td>Ali</td>
-								</tr>
-								<tr>
-									<th scope="row">Last Name</th>
-									<td>Areskog</td>
-								</tr>
-							</tbody>
-						</table>
-						<div style="clear:both;">
-						<pre>
-							<code>
-&lt;caption&gt;I'm an example Table&lt;/caption&gt;
-&lt;table&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;th scope=&quot;row&quot;&gt;First Name&lt;/th&gt;
-			&lt;td&gt;Ali&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;th scope=&quot;row&quot;&gt;Last Name&lt;/th&gt;
-			&lt;td&gt;Areskog&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-							</code>
-						</pre>
-						</div>
+						<h3>Why is hiding things such an issue</h3>
+						<p>Unfortunately, in many cases there are visual cues that indicate to sighted users what the hidden content or labels are that don't not get translated in a useful manner for those who are blind or visually impaired.</p>
+						<p><strong>Some Examples:</strong> Standard dropdown navigation, tabs, accordions, complex inputs (addresses, phone numbers)</p>
+					</section>
+					<section>
+						<h3>What can I do? I gotta hide it!</h3>
+						<p>Hide these elements using a screenreader-friendly CSS class. Do not use display: none; or visibility: hidden;</p>
+						<p>The following example is taken from bootstrap, but there are tons of effective methods. HTML5 boilerplate's "visuallyhidden" method is also a great one. And it's <a href="http://snook.ca/archives/html_and_css/hiding-content-for-accessibility">creator explains it well</a>.</p>
+						<pre><code data-trim>
+.reader-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+						</code></pre>
 					</section>
 					<section>
 						<h3>Forms &amp; Labels: The Basics</h3>
@@ -261,23 +242,6 @@
 					</section>
 					<section>
 						<h3>Beyond the Basics and Special Considerations</h3>
-						<h4>Skip Navigation</h4>
-						<p>Providing a link to skip the main navigation of a website is incredibly useful both to people using keyboard navigation, screenreaders, and other assistive technology</p>
-						<p>Skip Navs can be tackled a ton of different ways, <a href="http://webaim.org/techniques/skipnav/">WebAIM has done a great job covering it.</a></p>
-						<p>At it's most basic:</p>
-						<pre><code>&lt;a href="#main"&gt;Skip to Main Content&lt;/a&gt;</code></pre>
-					</section>
-					<section>
-						<h4>Tab Order</h4>
-						<p>DISCLAIMER: If you have to play with tab order, you may want to rethink your structure.</p>
-						<ul>
-							<li>The <strong>tabindex</strong> property customizes the tab and navigation order when using the tab key on the keyboard</li>
-							<li>You can order elements using tabindex=1, tabindex=2, tabindex=3, and so on (But this is really bad! Don't do it!!)</li>
-							<li>A tabindex of 0 adds an element such as a &lt;div&gt; or &lt;span&gt; into the default tab order and makes it focusable.</li>
-							<li>A tabindex of -1 allows focus to be set programmatically to elements (such as a modal), but takes the object out of the default tab order.
-						</li>
-					</section>
-					<section>
 						<h4>Icons are pretty great</h4>
 						<p><em>And they are also pretty rough for screenreaders.</em></p>
 						<p>Unfortunately, most screenreaders read out garbled code instead of names for icons...but you can help that!</p>
@@ -286,9 +250,12 @@
 <span aria-label="search">
 	<i class="fa fa-magnify" aria-hidden="true"></i>
 </span>
+
+<div>
+	<span class="glyphicons glyphicons-search" aria-hidden="true"></span>
+	<span class="reader-only">Search</span>
+</div>
 						</code></pre>
-						<p>We already discussed aria-label, so I'm going to assume we get it now. <strong>Aria-hidden</strong> hides elements from screenreaders.</p>
-						<p>No more garble!</p>
 					</section>
 					<section>
 						<h4>More sweet, sweet WAI-ARIA &amp; HTML5</h4>
@@ -306,72 +273,6 @@
 							<li>aria-readonly</li>
 							<li>aria-pressed</li>
 							<li>aria-checked</li>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h2>CSS</h2>
-						<h3>...Almost forgot this was a CSS meetup</h3>
-						<img src="imgs/embarassed.gif" alt="Bender is embarassed and I am too" />
-					</section>
-					<section>
-						<p>Accessibility for CSS is mainly "<strong>OMG</strong> Please don't do that"</p>
-						<p class="fragment fade-in big">Let's Talk About That...</p>
-					</section>
-					<section>
-						<h3>Content</h3>
-						<p>The CSS content property should not be a stand-in for properly written HTML.</p>
-						<p>If you use the content property to add images, keep it decorative rather than functional. Alt text cannot be added using the content property and titles can be iffy.</p>
-					</section>
-					<section>
-						<h3>Hover Vs Focus Vs Active</h3>
-						<p>99% of the time when there is a hover state, there should be a focus state set as well. This way, keyboard users get the same experience. <strong>Bonus! setting :focus also makes your site play nice with touch devices.</strong></p>
-						<p><strong>Hover</strong>: The state we all know and love, when the mouse moves over an element</p>
-						<p><strong>Focus</strong>: When the element receives focus, via keyboard targeting or is activated by the mouse</p>
-						<p><strong>Active</strong>: When the element is activated, generally via a click event. Usually only visible for a short period of time.</p>
-					</section>
-					<section>
-						<h3>Hiding things, the Worst Part</h3>
-						<p><strong>display: none;</strong> the element is not visible, is not rendered, and will not be seen or read by screenreaders</p>
-						<p><strong>visibility: hidden;</strong> the element is not visible, it IS rendered, and will not be seen or read by screenreaders</p>
-						<p><strong>aria-hidden HTML property</strong> hides from screenreaders only, visible and rendered for sighted users</p>
-					</section>
-					<section>
-						<h3>Why is hiding things such an issue</h3>
-						<p>Unfortunately, in many cases there are visual cues that indicate to sighted users what the hidden content or labels are that don't not get translated in a useful manner for those who are blind or visually impaired.</p>
-						<p><strong>Some Examples:</strong> Standard dropdown navigation, tabs, accordions, complex inputs (addresses, phone numbers)</p>
-					</section>
-					<section>
-						<h3>What can I do? I gotta hide it!</h3>
-						<p>Hide these elements using a screenreader-friendly CSS class. Do not use display: none; or visibility: hidden;</p>
-						<p>The following example is taken from bootstrap, but there are tons of effective methods. HTML5 boilerplate's "visuallyhidden" method is also a great one. And it's <a href="http://snook.ca/archives/html_and_css/hiding-content-for-accessibility">creator explains it well</a>.</p>
-						<pre><code data-trim>
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
-						</code></pre>
-					</section>
-					<section>
-						<h3>The Colors!</h3>
-						<p>Friendly color schemes can get challenging, but they are well worth the reward of effective communication</p>
-						<p><a href="http://www.snook.ca/technical/colour_contrast/colour.html#fg=33FF33,bg=333333">Check your contrast!</a> Your eyes will thank you</p>
-						<p><a href="http://colororacle.org/">Check for color-blind-friendly palettes!</a> 8% of the male population and .005% of females will thank you</p>
-						<p><a href="http://colorbrewer2.org/">For Maps, Charts, Graphs</a></p>
-					</section>
-					<section>
-						<h3>Multimedia &amp; CSS Animations/Transitions</h3>
-						<h4>Some Quick Notes</h4>
-						<ul>
-							<li class="fragment">Captioning for HTML5 &amp; Flash video is totally a thing, you should do it! It's more complicated than this slideshow can cover, but I included some handy links in the resources section.</li>
-							<li class="fragment">Be judicial with your animations. Allow the ability to turn the animation off. Strobing is generally not a good thing.</li>
-						</ul>
 					</section>
 				</section>
 				<section>
@@ -405,7 +306,6 @@
 				</section>
 				<section>
 					<p><a href="https://github.com/saltavenger/accessibility">https://github.com/saltavenger/accessibility</a></p>
-					<p>Includes workshop details.</p>
 				</section>
 			</div>
 
