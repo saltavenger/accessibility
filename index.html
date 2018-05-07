@@ -53,7 +53,7 @@
 					<h2>Reasons <em>NOT</em>&nbsp; to code Accessibly</h2>
 					<ol>
 						<li class="fragment">It takes too much time</li>
-						<li class="fragment">Lack of Information and Support</li>
+						<li class="fragment">Lack of information and support</li>
 						<li class="fragment">Information overload</li>
 						<li class="fragment">It's not required, and not important enough</li>
 					</ol>
@@ -63,7 +63,7 @@
 				<section>
 					<section>
 						<h2>The Small Percentage Myth</h2>
-						<p>Accessibility effects everyone and REALLY can help your users with disabilities. The bottom line is that most changes to make a site more accessible also happen to make well-designed sites and software.</p>
+						<p>Accessibility effects everyone and REALLY can help your users with disabilities. Most changes to make a site more accessible also happen to make well-designed sites and software.</p>
 					</section>
 					<section>
 						<h2>What you should look out for</h2>
@@ -142,8 +142,9 @@
 						<h4>Markup!</h4>
 						<pre><code data-trim>
 <header>
-	<h2>A Title</h2>
-	<p>A Clever Subtitle</p>
+	<h1>Making the Best Sandwich</h1>
+	<h2>Ingredients</h2>
+	<ul><li>Bread</li></ul>
 </header>
 						</code></pre>
 					</section>
@@ -290,7 +291,7 @@
 					<section>
 						<h4>More sweet, sweet WAI-ARIA &amp; HTML5</h4>
 						<p><strong>Roles</strong> can be really helpful for instructing your browser AND your user when using a non-standard element or for complex widgets.</p>
-						<p><a href="http://www.w3.org/TR/wai-aria/roles#role_definitions">THERE ARE A LOT OF ROLES</a></p>
+						<p><a href="https://www.w3.org/TR/wai-aria/#role_definitions">THERE ARE A LOT OF ROLES</a></p>
 						<p>A simple example...<br/>you made a button out of a link tag (Why!?)</p>
 						<pre><code><a href="javascript:void(0);" id="submit" role="button">Submit</a></code></pre>
 					</section>
@@ -322,10 +323,31 @@
 					</section>
 					<section>
 						<h3>Hover Vs Focus Vs Active</h3>
-						<p>99% of the time when there is a hover state, there should be a focus state set as well. This way, keyboard users get the same experience. <strong>Bonus! setting :focus also makes your site play nice with touch devices.</strong></p>
+						<p>99% of the time when there is a hover state, there should be a focus state set as well to ensure keyboard users get the same experience.</p>
+						<p><strong>Bonus!</strong> setting :focus also makes your site play nice with touch devices.</p>
+					</section>
+					<section>
 						<p><strong>Hover</strong>: The state we all know and love, when the mouse moves over an element</p>
 						<p><strong>Focus</strong>: When the element receives focus, via keyboard targeting or is activated by the mouse</p>
 						<p><strong>Active</strong>: When the element is activated, generally via a click event. Usually only visible for a short period of time.</p>
+						<button class="exampleButton" type="button">Example</button>
+						<style>
+							.exampleButton {
+								height: 40px;
+								width: 100px;
+							}
+							.exampleButton:hover {
+								color: white;
+								background: blue;
+							}
+							.exampleButton:focus {
+								background: pink;
+							}
+							.exampleButton:active {
+								color: white;
+								background: purple;
+							}
+						</style>
 					</section>
 					<section>
 						<h3>Hiding things, the Worst Part</h3>
